@@ -20,3 +20,9 @@ upload_egg:
     - sed -i "s/$version_origin/$version_cl/g" h2/__init__.py
     - pip install .
     - pip show h2
+
+    # Upload to Wish Pypi
+    - devpi use $PYPI_SERVER
+    - devpi login $USERNAME --password=$PASSWORD
+    - devpi use $INDEX
+    - devpi upload
